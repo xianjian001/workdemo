@@ -291,7 +291,7 @@ module.exports = {
       );
   },
   pluginOptions: {
-    lintStyleOnBuild: true,
+    lintStyleOnBuild: false,
     stylelint: {}
   }
 };

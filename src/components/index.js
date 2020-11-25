@@ -1,8 +1,12 @@
 // tree shaking
 import SendCode from './SendCode';
 import NetworkBroken from './NetworkBroken';
+import GoodsCategory from './GoodsCategory';
+import TabBars from './TabBars'
 
-export {
+export default {
   SendCode,
-  NetworkBroken
+  NetworkBroken,
+  GoodsCategory,
+  TabBars
 };
