@@ -1,15 +1,11 @@
 <template>
-  <div>
-      社区
-  </div>
+    <div>社区</div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-@import './style.less';
+@import "./style.less";
 </style>

@@ -1,19 +1,71 @@
-.page-hello {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  text-align: center;
+.home {
+  width: auto;
+  background-color: #FFFFFF;
+}
 
-  .demo {
-    width: 790px;
-    padding-top: 25px;
-    margin: 0 auto;
-    text-align: left;
+// img{
+//   vertical-align: bottom;
+// }
+.homeImg {
+  width: auto;
+  height: 134px;
+  margin: 10px 0 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  img :first-child img:last-child {
+    width: 34px;
+    height: 98px;
   }
 
-  h3 {
-    padding-left: 25px;
-    color: #000;
+  img:nth-child(2) {
+    width: 307px;
+    height: 134px;
+  }
+}
+
+.homeClassify {
+  width: auto;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  li {
+    padding: 0 22px;
+
+    img {
+      width: 44px;
+      height: 44px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: #666666;
+    }
+  }
+}
+
+.activity {
+  width: auto;
+  margin: 0 20px;
+
+  li {
+
+    p {
+      font-size: 18px;
+      line-height: 25px;
+      color: #030303;
+    }
+
+    img {
+      width: 335px;
+      height: 134px;
+      margin: 10px 0 20px 0;
+    }
   }
 }

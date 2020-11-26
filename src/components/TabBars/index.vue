@@ -20,10 +20,11 @@
 <script type="text/javascript">
 import Item from "./Item.vue";
 export default {
+    name: "TabBars",
     components: {
         Item,
     },
-    data () {
+    data() {
         return {
             selected: "home",
             tabbarDes: [
@@ -50,18 +51,18 @@ export default {
                     page: "our",
                     normalImg: require("../../assets/img/tabs/our.png"),
                     activeImg: require("../../assets/img/tabs/ourActive.png"),
-                }
+                },
             ],
         };
     },
     methods: {
-        getVal: function (res) {
+        getVal(res) {
             this.selected = res;
         },
     },
 };
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .warp {
     width: 100%;
     border-top: 1px solid #eee;
@@ -72,8 +73,8 @@ export default {
     font-size: 0;
 }
 .warp img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 .tabberWarp img {
     margin-top: 10px;

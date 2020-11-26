@@ -2,11 +2,15 @@
 import SendCode from './SendCode';
 import NetworkBroken from './NetworkBroken';
 import GoodsCategory from './GoodsCategory';
-import TabBars from './TabBars'
+import TabBars from './TabBars';
+import LocateSearch from './LocateSearch';
+import CommonHead from './CommonHead'
 
-export default {
+export {
   SendCode,
   NetworkBroken,
   GoodsCategory,
-  TabBars
+  TabBars,
+  LocateSearch,
+  CommonHead
 };

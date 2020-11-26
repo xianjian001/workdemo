@@ -17,9 +17,19 @@ export const routes = [{
     path: '/discover/photoTour',
   },
   {
+    component: () => import('@/views/discover/wedding/index.vue'),
+    name: 'discover-wedding',
+    path: '/discover/wedding',
+  },
+  {
     component: () => import('@/views/home/index.vue'),
     name: 'home',
     path: '/home',
+  },
+  {
+    component: () => import('@/views/home/weddingPlanner/index.vue'),
+    name: 'home-weddingPlanner',
+    path: '/home/weddingPlanner',
   },
   {
     component: () => import('@/views/our/index.vue'),

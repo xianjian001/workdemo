@@ -9,6 +9,10 @@ import './components/global';
 import './icons';
 import './filters';
 import './services';
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
 
 import './assets/style/app.less';
 

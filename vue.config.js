@@ -40,7 +40,7 @@ const genPlugins = () => {
       ignore: ['images', 'components'],
       redirect: [
         {
-          redirect: '/hello',
+          redirect: '/home',
           path: '/'
         }
       ]
