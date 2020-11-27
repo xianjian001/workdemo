@@ -11,8 +11,11 @@ import './filters';
 import './services';
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import axios from 'axios'
+Vue.prototype.$axios= axios;
 
 Vue.use(Vant);
+import store from './store';
 
 import './assets/style/app.less';
 
@@ -23,6 +26,7 @@ Vue.config.productionTip = process.env.NODE_ENV === 'production';
 new Vue({
   el: '#app',
   router,
+  store,
   // use Runtime-only
   // https://vuejs.org/v2/guide/installation.html
   render: (h) => h(App)

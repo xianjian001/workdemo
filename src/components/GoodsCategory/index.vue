@@ -1,6 +1,6 @@
 <template>
     <ul class="goodsCategory">
-        <li v-for="(item, index) in dataList" :key="index">
+        <li v-for="(item, index) in storeList" :key="index" @touchend="goCommodityDetails(item)">
             <img :src="item.imgUrl" alt="" class="commodityImg" />
             <p v-text="item.description" class="commodityDescription"></p>
             <div class="commoditySales">
@@ -18,7 +18,7 @@
 export default {
     name: "GoodsCategory",
     props: {
-        dataList: {
+        storeList: {
             type: Array,
             default() {
                 return [];
@@ -30,6 +30,16 @@ export default {
             starUrl: require("../../assets/img/GoodsCategory/star.png"),
         };
     },
+    methods:{
+        goCommodityDetails(a){
+            this.$router.push({
+                name:"commodityDetails",
+                query: {
+                    commodityDatas: a
+                }
+            })
+        }
+    }
 };
 </script>
 

@@ -8,6 +8,7 @@
             @touchend="goBack()"
         />
         <p v-text="title"></p>
+        <img v-if="isShare" src="../../assets/img/rests/share.png" alt="">
     </div>
 </template>
 
@@ -27,10 +28,19 @@ export default {
                 return;
             },
         },
+        isShare: {
+            type: Boolean,
+            default() {
+                return;
+            },
+        }
     },
     data() {
         return {};
     },
+    // created(){
+    //     console.log(this.$route)
+    // },
     methods: {
         goBack() {
             this.$router.back();

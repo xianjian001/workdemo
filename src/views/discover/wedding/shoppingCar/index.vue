@@ -1,15 +1,108 @@
 <template>
-  <div>
-      购物车
-  </div>
+    <div class="shoppingCar">
+        <CommonHead :title="title" :isNoLevelOne="isNoLevelOne"></CommonHead>
+        <div class="shoppingList">
+            <ul class="storeList">
+                <div class="storeName">
+                    <van-checkbox
+                        v-model="checkedStore"
+                        checked-color="#FD95AF"
+                    >
+                    </van-checkbox>
+                    <p>
+                        {{ commodityDatas.storeName }}
+                    </p>
+                </div>
+
+                <li class="commodityList">
+                    <van-checkbox
+                        v-model="checkedCommodity"
+                        checked-color="#FD95AF"
+                    >
+                    </van-checkbox>
+                    <div class="commodityConts">
+                        <img :src="commodityDatas.imgUrl" alt="" />
+                        <div class="commodityDescription">
+                            <p v-text="commodityDatas.description"></p>
+                            <div class="commodityPrice">
+                                <p>￥{{ commodityDatas.price }}</p>
+                                <div>
+                                    <button @touchend="sec">-</button>
+                                    <p v-text="num"></p>
+                                    <button @touchend="add">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="settleAccounts">
+            <van-checkbox
+                v-model="checkedSum"
+                checked-color="#FD95AF"
+            ></van-checkbox>
+            <div class="clearing">
+                <div class="clearingContent">
+                    <p class="total">
+                        合计：<span>￥{{ sum }}</span>
+                    </p>
+                    <p class="onSale">
+                        <span>总额：￥{{ sum }}</span>
+                        <span>优惠：￥{{ discounts }}</span>
+                    </p>
+                </div>
+                <button>
+                    去结算<span v-show="checkedSum && checkedCommodity">({{ commonsityNum }})</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+import { CommonHead } from "@components";
 export default {
-
-}
+    name: "shoppingCar",
+    components: {
+        CommonHead,
+    },
+    data() {
+        return {
+            title: "购物车",
+            isNoLevelOne: true,
+            checkedStore: false,
+            checkedCommodity: false,
+            checkedSum: false,
+            commodityDatas: {},
+            num: 0,
+            discounts: 0,
+            commonsityNum: 0,
+        };
+    },
+    created() {
+        console.log(this.$route.query);
+        this.commodityDatas = this.$route.query.commodityDatas;
+    },
+    computed:{
+      sum(){
+        return this.num * this.commodityDatas.price;
+      }
+    },
+    methods: {
+        sec() {
+            this.num--;
+            if (this.num <= 0) {
+                this.num = 0;
+            }
+        },
+        add() {
+            this.num++;
+        },
+    },
+};
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-@import './style.less';
+@import "./style.less";
 </style>

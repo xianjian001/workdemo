@@ -2,39 +2,44 @@ import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
 export const routes = [{
-    component: () => import('@/views/community/index.vue'),
-    name: 'community',
-    path: '/community',
-  },
-  {
     component: () => import('@/views/discover/index.vue'),
     name: 'discover',
     path: '/discover',
-  },
-  {
-    component: () => import('@/views/discover/photoTour/index.vue'),
-    name: 'discover-photoTour',
-    path: '/discover/photoTour',
+    meta: {
+      keepAlive: true 
+      }
   },
   {
     component: () => import('@/views/discover/wedding/index.vue'),
-    name: 'discover-wedding',
+    name: 'wedding',
     path: '/discover/wedding',
+    meta: {
+      keepAlive: true 
+      }
+  },
+  {
+    component: () => import('@/views/discover/wedding/commodityDetails/index.vue'),
+    name: 'commodityDetails',
+    path: '/discover/wedding/commodityDetails',
+    meta: {
+      keepAlive: true 
+      }
+  },
+  {
+    component: () => import('@/views/discover/wedding/shoppingCar/index.vue'),
+    name: 'shoppingCar',
+    path: '/discover/wedding/shoppingCar',
+    meta: {
+      keepAlive: true 
+      }
   },
   {
     component: () => import('@/views/home/index.vue'),
     name: 'home',
     path: '/home',
-  },
-  {
-    component: () => import('@/views/home/weddingPlanner/index.vue'),
-    name: 'home-weddingPlanner',
-    path: '/home/weddingPlanner',
-  },
-  {
-    component: () => import('@/views/our/index.vue'),
-    name: 'our',
-    path: '/our',
+    meta: {
+      keepAlive: true
+      }
   },
   {
     path: '/',

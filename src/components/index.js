@@ -4,7 +4,7 @@ import NetworkBroken from './NetworkBroken';
 import GoodsCategory from './GoodsCategory';
 import TabBars from './TabBars';
 import LocateSearch from './LocateSearch';
-import CommonHead from './CommonHead'
+import CommonHead from './CommonHead';
 
 export {
   SendCode,
@@ -12,5 +12,5 @@ export {
   GoodsCategory,
   TabBars,
   LocateSearch,
-  CommonHead
+  CommonHead,
 };

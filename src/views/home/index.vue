@@ -26,6 +26,7 @@
                 <img :src="item.imgUrl" alt="" />
             </li>
         </ul>
+        <TabBars></TabBars>
     </div>
 </template>
 
@@ -35,11 +36,12 @@
  */
 // 工具类
 import { formatDate } from "utils";
-import { LocateSearch } from "@components";
+import { LocateSearch,TabBars } from "@components";
 export default {
     name: "home",
     components: {
         LocateSearch,
+        TabBars
     },
     data() {
         return {
@@ -49,22 +51,22 @@ export default {
             homeClassify: [
                 {
                     title: "婚礼策划",
-                    page: "weddingPlanner",
+                    name: "weddingPlanner",
                     imgUrl: require("../../assets/img/home/weddingPlanner.png"),
                 },
                 {
                     title: "婚纱摄影",
-                    page: "weddingPhoto",
+                    name: "weddingPhoto",
                     imgUrl: require("../../assets/img/home/weddingPhoto.png"),
                 },
                 {
                     title: "婚宴商店",
-                    page: "weddingShop",
+                    name: "weddingShop",
                     imgUrl: require("../../assets/img/home/weddingShop.png"),
                 },
                 {
                     title: "婚车租赁",
-                    page: "weddingCar",
+                    name: "weddingCar",
                     imgUrl: require("../../assets/img/home/weddingCar.png"),
                 },
             ],
@@ -72,22 +74,22 @@ export default {
             activity: [
                 {
                     title: "官方活动",
-                    page: "officialActivity",
+                    name: "officialActivity",
                     imgUrl: require("../../assets/img/home/officialActivity.png"),
                 },
                 {
                     title: "爱情之旅",
-                    page: "LoveJourney",
+                    name: "LoveJourney",
                     imgUrl: require("../../assets/img/home/LoveJourney.png"),
                 },
                 {
                     title: "第三活动",
-                    page: "thirdAct",
+                    name: "thirdAct",
                     imgUrl: require("../../assets/img/home/officialActivity.png"),
                 },
                 {
                     title: "第四活动",
-                    page: "fourAct",
+                    name: "fourAct",
                     imgUrl: require("../../assets/img/home/LoveJourney.png"),
                 },
             ],
@@ -99,9 +101,11 @@ export default {
     },
 
     methods: {
-        goPage(page) {
-            console.log(page);
-            this.$router.push("/home/" + page);
+        goPage(name) {
+            console.log(name);
+            this.$router.push({
+                name
+            });
             // 只创建了weddingPlanner页面可以进行跳转实验
         },
         // movieComingSoon () {
