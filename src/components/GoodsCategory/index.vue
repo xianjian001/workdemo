@@ -1,6 +1,10 @@
 <template>
     <ul class="goodsCategory">
-        <li v-for="(item, index) in storeList" :key="index" @touchend="goCommodityDetails(item)">
+        <li
+            v-for="(item, index) in storeList"
+            :key="index"
+            @touchend="goCommodityDetails(item)"
+        >
             <img :src="item.imgUrl" alt="" class="commodityImg" />
             <p v-text="item.description" class="commodityDescription"></p>
             <div class="commoditySales">
@@ -16,28 +20,31 @@
 
 <script>
 export default {
-    name: "GoodsCategory",
+    name: 'GoodsCategory',
     props: {
         storeList: {
             type: Array,
             default() {
                 return [];
-            },
-        },
+            }
+        }
     },
     data() {
         return {
-            starUrl: require("../../assets/img/GoodsCategory/star.png"),
+            starUrl: require('../../assets/img/GoodsCategory/star.png')
         };
     },
-    methods:{
-        goCommodityDetails(a){
+    created() {
+        console.log(1);
+    },
+    methods: {
+        goCommodityDetails(a) {
             this.$router.push({
-                name:"commodityDetails",
+                name: 'commodityDetails',
                 query: {
                     commodityDatas: a
                 }
-            })
+            });
         }
     }
 };

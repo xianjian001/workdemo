@@ -5,7 +5,7 @@
             :isNoLevelOne="isNoLevelOne"
             :isShare="isShare"
         ></CommonHead>
-        <div>
+        <div class="commondityBox">
             <div class="commondityImg">
                 <img :src="commodityDatas.imgUrl" alt="" />
             </div>
@@ -34,69 +34,77 @@
                 </ul>
             </div>
         </div>
-        <div class="commodityDeep">
-            <ul>
-                <li class="service">
-                    <img :src="imgService" alt="" />
-                    <p>客服</p>
-                </li>
-                <li class="shoppongCar" @touchend="goShoppingCar(commodityDatas)">
-                    <img :src="imgCar" alt="" />
-                    <p>购物车</p>
-                </li>
-            </ul>
-            <button class="intoCar" @touchend="addShoppingCar(commodityDatas)">加入购物车</button>
-            <button class="toBuy">立即购买</button>
+        <div class="settleAccounts">
+            <div class="commodityDeep">
+                <ul>
+                    <li class="service">
+                        <img :src="imgService" alt="" />
+                        <p>客服</p>
+                    </li>
+                    <li
+                        class="shoppongCar"
+                        @touchend="goShoppingCar(commodityDatas)"
+                    >
+                        <img :src="imgCar" alt="" />
+                        <p>购物车</p>
+                    </li>
+                </ul>
+                <button
+                    class="intoCar"
+                    @touchend="addShoppingCar(commodityDatas)"
+                >
+                    加入购物车
+                </button>
+                <button class="toBuy">立即购买</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import { CommonHead } from "@components";
+import { CommonHead } from '@components';
 export default {
-    name: "commodityDetails",
+    name: 'CommodityDetails',
     components: {
-        CommonHead,
+        CommonHead
     },
     data() {
         return {
-            title: "商品详情",
+            title: '商品详情',
             isNoLevelOne: true,
             isShare: true,
-            imgService: require("../../../../assets/img/rests/customerService.png"),
-            imgCar: require("../../../../assets/img/rests/shoppingCar.png"),
+            imgService: require('../../../assets/img/rests/customerService.png'),
+            imgCar: require('../../../assets/img/rests/shoppingCar.png'),
             commodityDatas: {},
-            shoppingList:[]
+            shoppingList: []
         };
     },
-    created(){
+    created() {
+        console.log(this.$route);
         this.commodityDatas = this.$route.query.commodityDatas;
     },
-    methods:{
-        goShoppingCar(a){
+    methods: {
+        goShoppingCar(a) {
             this.$router.push({
-                name: "shoppingCar",
-                query:{
+                name: 'shoppingCar',
+                query: {
                     commodityDatas: a
                 }
-            })
+            });
         },
         // 加入购物车
-        addShoppingCar(a){
-            
-        },
+        addShoppingCar(a) {},
         // 添加本地存储
-        addLocalStorage(a){
-            if(localStorage.carList){
-                let carList = JSON.parse(localStorage.getItem("carList"));
+        addLocalStorage(a) {
+            if (localStorage.carList) {
+                const carList = JSON.parse(localStorage.getItem('carList'));
                 carList.push(a);
-                localStorage.setItem("carList",JSON.stringify(carList));
-            }else{
-                let carList = [];
+                localStorage.setItem('carList', JSON.stringify(carList));
+            } else {
+                const carList = [];
                 carList.push(a);
-                localStorage.setItem("carList",JSON.stringify(carList));
+                localStorage.setItem('carList', JSON.stringify(carList));
             }
-            
         }
     }
 };

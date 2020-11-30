@@ -1,14 +1,13 @@
 .home {
-  width: auto;
+  width: 100%;
+  height: 100%;
   background-color: #FFFFFF;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
-// img{
-//   vertical-align: bottom;
-// }
 .homeImg {
-  width: auto;
-  height: 134px;
+  width: 100%;
   margin: 10px 0 0 0;
   display: inline-flex;
   align-items: center;
@@ -16,26 +15,26 @@
   flex-wrap: nowrap;
 
   img :first-child img:last-child {
-    width: 34px;
-    height: 98px;
+    width: 10%;
   }
 
   img:nth-child(2) {
-    width: 307px;
-    height: 134px;
+    width: 80%;
   }
 }
 
 .homeClassify {
-  width: auto;
+  width: 100%;
   height: 100px;
   display: inline-flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: nowrap;
+  text-align: center;
 
   li {
-    padding: 0 22px;
+    width: 25%;
+    box-sizing: border-box;
 
     img {
       width: 44px;
@@ -63,9 +62,13 @@
     }
 
     img {
-      width: 335px;
-      height: 134px;
+      width: 100%;
+      // height: 134px;
       margin: 10px 0 20px 0;
     }
   }
+}
+.pageDeep{
+  width: 100%;
+  height: 50px;
 }

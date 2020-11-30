@@ -52,7 +52,7 @@
                         <span>优惠：￥{{ discounts }}</span>
                     </p>
                 </div>
-                <button>
+                <button class="paymentBtn">
                     去结算<span v-show="checkedSum && checkedCommodity">({{ commonsityNum }})</span>
                 </button>
             </div>
@@ -61,15 +61,15 @@
 </template>
 
 <script>
-import { CommonHead } from "@components";
+import { CommonHead } from '@components';
 export default {
-    name: "shoppingCar",
+    name: 'ShoppingCar',
     components: {
-        CommonHead,
+        CommonHead
     },
     data() {
         return {
-            title: "购物车",
+            title: '购物车',
             isNoLevelOne: true,
             checkedStore: false,
             checkedCommodity: false,
@@ -77,14 +77,14 @@ export default {
             commodityDatas: {},
             num: 0,
             discounts: 0,
-            commonsityNum: 0,
+            commonsityNum: 0
         };
     },
     created() {
         console.log(this.$route.query);
         this.commodityDatas = this.$route.query.commodityDatas;
     },
-    computed:{
+    computed: {
       sum(){
         return this.num * this.commodityDatas.price;
       }
@@ -98,8 +98,8 @@ export default {
         },
         add() {
             this.num++;
-        },
-    },
+        }
+    }
 };
 </script>
 

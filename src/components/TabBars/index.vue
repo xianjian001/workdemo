@@ -13,14 +13,14 @@
 
 <script>
 export default {
-    name: "TabBarsss",
+    name: 'TabBarsss',
     props: {},
     data() {
         return {
-            active: "首页",
+            active: '首页'
         };
     },
-    methods: {},
+    methods: {}
 };
 </script>
 

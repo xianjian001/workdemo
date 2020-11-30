@@ -28,13 +28,13 @@
 
 <script>
 export default {
-    name: "LocateSearch",
+    name: 'LocateSearch',
     data() {
         return {
-            posAddress: "杭州市",
-            value: "",
+            posAddress: '杭州市',
+            value: ''
         };
-    },
+    }
 };
 </script>
 

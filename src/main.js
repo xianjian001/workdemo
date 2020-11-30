@@ -11,8 +11,8 @@ import './filters';
 import './services';
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import axios from 'axios'
-Vue.prototype.$axios= axios;
+import axios from 'axios';
+Vue.prototype.$axios = axios;
 
 Vue.use(Vant);
 import store from './store';

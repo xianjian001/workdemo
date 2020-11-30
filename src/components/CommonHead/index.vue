@@ -5,7 +5,7 @@
             v-if="isNoLevelOne"
             name="arrow-left"
             size="30"
-            @touchend="goBack()"
+            @touchend="goBack"
         />
         <p v-text="title"></p>
         <img v-if="isShare" src="../../assets/img/rests/share.png" alt="">
@@ -14,25 +14,25 @@
 
 <script>
 export default {
-    name: "CommonHead",
+    name: 'CommonHead',
     props: {
         title: {
             type: String,
             default() {
-                return "";
-            },
+                return '';
+            }
         },
         isNoLevelOne: {
             type: Boolean,
             default() {
                 return;
-            },
+            }
         },
         isShare: {
             type: Boolean,
             default() {
                 return;
-            },
+            }
         }
     },
     data() {
@@ -44,8 +44,8 @@ export default {
     methods: {
         goBack() {
             this.$router.back();
-        },
-    },
+        }
+    }
 };
 </script>
 

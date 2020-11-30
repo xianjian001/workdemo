@@ -5,41 +5,26 @@ export const routes = [{
     component: () => import('@/views/discover/index.vue'),
     name: 'discover',
     path: '/discover',
-    meta: {
-      keepAlive: true 
-      }
+  },
+  {
+    component: () => import('@/views/discover/commodityDetails/index.vue'),
+    name: 'commodityDetails',
+    path: '/discover/commodityDetails',
+  },
+  {
+    component: () => import('@/views/discover/shoppingCar/index.vue'),
+    name: 'shoppingCar',
+    path: '/discover/shoppingCar',
   },
   {
     component: () => import('@/views/discover/wedding/index.vue'),
     name: 'wedding',
     path: '/discover/wedding',
-    meta: {
-      keepAlive: true 
-      }
-  },
-  {
-    component: () => import('@/views/discover/wedding/commodityDetails/index.vue'),
-    name: 'commodityDetails',
-    path: '/discover/wedding/commodityDetails',
-    meta: {
-      keepAlive: true 
-      }
-  },
-  {
-    component: () => import('@/views/discover/wedding/shoppingCar/index.vue'),
-    name: 'shoppingCar',
-    path: '/discover/wedding/shoppingCar',
-    meta: {
-      keepAlive: true 
-      }
   },
   {
     component: () => import('@/views/home/index.vue'),
     name: 'home',
     path: '/home',
-    meta: {
-      keepAlive: true
-      }
   },
   {
     path: '/',

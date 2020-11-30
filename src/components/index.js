@@ -12,5 +12,5 @@ export {
   GoodsCategory,
   TabBars,
   LocateSearch,
-  CommonHead,
+  CommonHead
 };

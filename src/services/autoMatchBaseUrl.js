@@ -7,13 +7,19 @@ import { combineURLs } from 'utils';
  * @param prefix
  * @returns {string}
  */
-export default function autoMatchBaseUrl (prefix = '') {
+export default function autoMatchBaseUrl (prefix) {
   let baseUrl = '';
   if (prefix === UPLOAD_PREFIX) {
     baseUrl = window.LOCAL_CONFIG.API_UPLOAD;
   } else {
     baseUrl = window.LOCAL_CONFIG.API_HOME;
   }
-
+  // switch (prefix) {
+  //   case UPLOAD_PREFIX:
+  //     baseUrl = window.LOCAL_CONFIG.API_UPLOAD;
+  //     break;
+  //   default:
+  //     baseUrl = window.LOCAL_CONFIG.API_HOME;
+  // }
   return combineURLs(baseUrl, prefix);
 }

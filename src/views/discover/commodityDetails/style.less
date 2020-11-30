@@ -1,13 +1,22 @@
 .commodityDetails {
-    width: auto;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.commonsityBox{
+    width: 100%;
 }
 .commondityImg {
     width: auto;
+
     img {
-        width: 375px;
-        height: 322px;
+        width: 100%;
+        // height: 322px;
     }
 }
+
 .commodityConts {
     width: auto;
     padding: 20px 12px;
@@ -64,8 +73,13 @@
     color: #666666;
 }
 
+.settleAccounts{
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #E2E2E2;
+}
 .commodityDeep {
-    width: auto;
+    width: 100%;
     height: 60px;
     position: fixed;
     bottom: 0;
@@ -74,26 +88,27 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #E2E2E2;
 
     ul {
-        width: 143px;
+        width: 40%;
+        height: 60px;
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        background-color: #FFFFFF;
 
         li {
-            width: 40px;
             font-size: 12px;
             line-height: 17px;
-            text-align: center;
             color: #666666;
         }
 
     }
 
     button {
-        width: 116px;
+        width: 30%;
         height: 60px;
         font-size: 16px;
         line-height: 60px;

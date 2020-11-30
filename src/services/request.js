@@ -10,7 +10,7 @@
 import Qs from 'qs';
 import axios from 'axios';
 import autoMatchBaseUrl from './autoMatchBaseUrl';
-import { TIMEOUT } from '@/constant';
+import { TIMEOUT, HOME_PREFIX } from '@/constant';
 import { addPending, removePending } from './pending';
 
 const codeMessage = {
@@ -30,6 +30,22 @@ const codeMessage = {
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。'
 };
+
+function successResFormat(response, prefix) {
+  const res = response;
+  const prefixMap = {
+    [HOME_PREFIX]() {
+      console.log('res', res);
+      if (res.code === 600) {
+        return Promise.resolve(res);
+      } else {
+        return Promise.reject(res.errorMessage);
+      }
+    }
+  };
+  console.log(prefixMap);
+  return prefixMap[prefix]();
+}
 
 function responseLog (response) {
   if (process.env.NODE_ENV === 'development') {
@@ -51,12 +67,13 @@ function responseLog (response) {
 }
 
 function checkStatus (response) {
+  console.log(response);
   // 如果http状态码正常，则直接返回数据
   if (response) {
     const { status, statusText } = response;
     if ((status >= 200 && status < 300) || status === 304) {
       // 如果不需要除了data之外的数据，可以直接 return response.data
-      return response.data;
+      return successResFormat(response.data, response.config.prefix);
     }
     return {
       status,
@@ -98,6 +115,7 @@ const axiosConfig = {
  */
 const axiosResponse = {
   success: (response) => {
+    console.log(response);
     // 在请求结束后，移除本次请求
     removePending(response);
     responseLog(response);
@@ -163,7 +181,8 @@ export default function request (url, {
     data,
     timeout,
     headers: formatHeaders,
-    responseType: dataType
+    responseType: dataType,
+    prefix
   };
 
   if (method === 'get') {

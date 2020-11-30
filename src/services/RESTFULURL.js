@@ -1,3 +1,4 @@
 export default {
-  "octocat": "users/octocat"
+  // "octocat": "users/octocat"
+  useApi: "user/login/500",
 }
