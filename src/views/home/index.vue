@@ -1,16 +1,28 @@
 <template>
   <div class="home">
     <LocateSearch></LocateSearch>
-    <div class="homeImg">
-      <img src="../../assets/img/home/banner2.png" alt="" />
-      <img src="../../assets/img/home/banner.png" alt="" />
-      <img src="../../assets/img/home/banner1.png" alt="" />
+    <div class=".home-img">
+      <img
+        class="home-img-onside"
+        src="../../assets/img/home/banner2.png"
+        alt=""
+      />
+      <img
+        class="home-img-center"
+        src="../../assets/img/home/banner.png"
+        alt=""
+      />
+      <img
+        class="home-img-onside"
+        src="../../assets/img/home/banner1.png"
+        alt=""
+      />
     </div>
-    <ul class="homeClassify">
+    <ul class="home-classify">
       <li
         v-for="(item, index) in homeClassify"
         :key="index"
-        @touchend="goPage(item.page)"
+        @click="goPage(item.page)"
       >
         <img :src="item.imgUrl" alt="" />
         <p v-text="item.title"></p>
@@ -20,15 +32,13 @@
       <li
         v-for="(item, index) in activity"
         :key="index"
-        @touchend="goPage(item.page)"
+        @click="goPage(item.page)"
       >
         <p v-text="item.title"></p>
         <img :src="item.imgUrl" alt="" />
       </li>
     </ul>
-    <div class="pageDeep">
-      <TabBars></TabBars>
-    </div>
+    <TabBars></TabBars>
   </div>
 </template>
 
@@ -126,6 +136,6 @@ export default {
 };
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="less" rel="stylesheet/less" scoped>
 @import "./style.less";
 </style>

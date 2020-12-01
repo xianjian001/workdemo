@@ -1,11 +1,11 @@
 <template>
-  <div class="commonHead">
+  <div class="common-hd">
     <van-icon
-      class="goBack"
+      class="go-back"
       v-if="isNoLevelOne"
       name="arrow-left"
       size="30"
-      @touchend="goBack"
+      @click="goBack"
     />
     <p v-text="title"></p>
     <img v-if="isShare" src="../../assets/img/rests/share.png" alt="" />

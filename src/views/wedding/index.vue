@@ -7,17 +7,17 @@
           v-for="(item, index) in titleList"
           :key="index"
           :title="item"
-          @touchend="getStoreList(index)"
+          @click="getStoreList(index)"
         >
           <GoodsCategory :storeList="storeList"></GoodsCategory>
         </van-tab>
-        <!-- <van-tab title="结婚请柬" @touchend="getStoreList">
+        <!-- <van-tab title="结婚请柬" @click="getStoreList">
                     <GoodsCategory :storeList="storeList"></GoodsCategory>
                 </van-tab>
-                <van-tab title="喜糖" @touchend="getStoreList">
+                <van-tab title="喜糖" @click="getStoreList">
                     <GoodsCategory :storeList="storeList"></GoodsCategory>
                 </van-tab>
-                <van-tab title="喜酒" @touchend="getStoreList">
+                <van-tab title="喜酒" @click="getStoreList">
                     <GoodsCategory :storeList="storeList"></GoodsCategory>
                 </van-tab> -->
       </van-tabs>

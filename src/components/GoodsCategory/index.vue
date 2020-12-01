@@ -1,13 +1,13 @@
 <template>
-  <ul class="goodsCategory">
+  <ul class="goods-category">
     <li
       v-for="(item, index) in storeList"
       :key="index"
-      @touchend="goCommodityDetails(item)"
+      @click="goCommodityDetails(item)"
     >
-      <img :src="item.imgUrl" alt="" class="commodityImg" />
-      <p v-text="item.description" class="commodityDescription"></p>
-      <div class="commoditySales">
+      <img :src="item.imgUrl" alt="" class="commodity-img" />
+      <p v-text="item.description" class="commodity-description"></p>
+      <div class="commodity-sales">
         <p>￥{{ item.price }}</p>
         <p>
           <img :src="starUrl" alt="" />

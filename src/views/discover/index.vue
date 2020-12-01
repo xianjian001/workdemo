@@ -2,28 +2,28 @@
   <div class="discover">
     <CommonHead :title="title"></CommonHead>
     <img
-      class="discoverTop"
+      class="discover-top"
       src="../../assets/img/discover/discoverTop.png"
       alt=""
     />
-    <div class="weddingProduct">
+    <div class="wedding-product">
       <h3>精品分类</h3>
-      <ul class="weddingProductClassify">
+      <ul class="wedding-product-classify">
         <li
           v-for="(item, index) in wedProductClassify"
           :key="index"
-          @touchend="goPage(item.name)"
+          @click="goPage(item.name)"
         >
           <img :src="item.imgUrl" alt="" />
           <p v-text="item.title"></p>
         </li>
       </ul>
     </div>
-    <ul class="maskLayerDatas">
+    <ul class="mask-layer-datas">
       <li
         v-for="(item, index) in maskLayerDatas"
         :key="index"
-        @touchend="goPage(item.name)"
+        @click="goPage(item.name)"
       >
         <img :src="item.imgUrl" alt="" />
         <p v-text="item.title"></p>
@@ -33,15 +33,13 @@
       <li
         v-for="(item, index) in showsData"
         :key="index"
-        @touchend="goPage(item.name)"
+        @click="goPage(item.name)"
       >
         <img :src="item.imgUrl" alt="" />
         <p v-text="item.title"></p>
       </li>
     </ul>
-    <div class="pageDeep">
-      <TabBars></TabBars>
-    </div>
+    <TabBars></TabBars>
   </div>
 </template>
 

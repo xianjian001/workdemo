@@ -1,13 +1,13 @@
 <template>
   <div>
-    <ul class="homeTop">
+    <ul class="home-top">
       <li class="locate">
         <p>{{ posAddress }}</p>
-        <van-icon class="locateIcon" name="arrow-down" size="20" />
+        <van-icon class="locate-icon" name="arrow-down" size="20" />
       </li>
       <li class="search">
         <van-field
-          class="searchIpt"
+          class="search-inp"
           v-model="value"
           clearable
           left-icon="search"
@@ -15,7 +15,7 @@
         />
       </li>
       <li class="news">
-        <van-icon class="newsIcon" name="envelop-o" color="#FF69B4" size="25" />
+        <van-icon class="news-icon" name="envelop-o" color="#FF69B4" size="25" />
       </li>
     </ul>
   </div>

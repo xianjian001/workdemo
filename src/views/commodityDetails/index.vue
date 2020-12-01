@@ -1,23 +1,23 @@
 <template>
-  <div class="commodityDetails">
+  <div class="commodity-details">
     <CommonHead
       :title="title"
       :isNoLevelOne="isNoLevelOne"
       :isShare="isShare"
     ></CommonHead>
-    <div class="commondityBox">
-      <div class="commondityImg">
+    <div class="commondity-box">
+      <div class="commondity-img">
         <img :src="commodityDatas.imgUrl" alt="" />
       </div>
-      <div class="commodityConts">
+      <div class="commodity-conts">
         <p v-text="commodityDatas.description" class="desciption"></p>
-        <div class="commodityPrice">
+        <div class="commodity-price">
           <p>￥{{ commodityDatas.price }}</p>
           <button v-for="(item, index) in commodityDatas.active" :key="index">
             {{ item }}
           </button>
         </div>
-        <p class="normalPrice">价格：￥{{ commodityDatas.normalPrice }}</p>
+        <p class="normal-price">价格：￥{{ commodityDatas.normalPrice }}</p>
         <ul class="expressage">
           <li>
             {{ commodityDatas.expressage }}:{{ commodityDatas.expressagePrice }}
@@ -27,23 +27,21 @@
         </ul>
       </div>
     </div>
-    <div class="settleAccounts">
-      <div class="commodityDeep">
-        <ul>
-          <li class="service">
-            <img :src="imgService" alt="" />
-            <p>客服</p>
-          </li>
-          <li class="shoppongCar" @touchend="goShoppingCar(commodityDatas)">
-            <img :src="imgCar" alt="" />
-            <p>购物车</p>
-          </li>
-        </ul>
-        <button class="intoCar" @touchend="addShoppingCar(commodityDatas)">
-          加入购物车
-        </button>
-        <button class="toBuy">立即购买</button>
-      </div>
+    <div class="commodity-deep">
+      <ul>
+        <li class="service">
+          <img :src="imgService" alt="" />
+          <p>客服</p>
+        </li>
+        <li class="shoppong-car" @click="goShoppingCar(commodityDatas)">
+          <img :src="imgCar" alt="" />
+          <p>购物车</p>
+        </li>
+      </ul>
+      <button class="into-car" @click="addShoppingCar(commodityDatas)">
+        加入购物车
+      </button>
+      <button class="to-buy">立即购买</button>
     </div>
   </div>
 </template>
