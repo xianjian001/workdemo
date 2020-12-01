@@ -34,9 +34,6 @@ export default {
             starUrl: require('../../assets/img/GoodsCategory/star.png')
         };
     },
-    created() {
-        console.log(1);
-    },
     methods: {
         goCommodityDetails(a) {
             this.$router.push({

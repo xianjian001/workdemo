@@ -138,7 +138,6 @@ export default {
     },
     methods: {
         goPage(name) {
-            console.log(name);
             if (name === 'wedding') {
                 this.$router.push({
                     name

@@ -5,6 +5,7 @@
             <ul class="storeList">
                 <div class="storeName">
                     <van-checkbox
+                        style="display: inline-block; width: 20px"
                         v-model="checkedStore"
                         checked-color="#FD95AF"
                     >
@@ -53,7 +54,9 @@
                     </p>
                 </div>
                 <button class="paymentBtn">
-                    去结算<span v-show="checkedSum && checkedCommodity">({{ commonsityNum }})</span>
+                    去结算<span v-show="checkedSum && checkedCommodity"
+                        >({{ commonsityNum }})</span
+                    >
                 </button>
             </div>
         </div>
@@ -85,9 +88,9 @@ export default {
         this.commodityDatas = this.$route.query.commodityDatas;
     },
     computed: {
-      sum(){
-        return this.num * this.commodityDatas.price;
-      }
+        sum() {
+            return this.num * this.commodityDatas.price;
+        }
     },
     methods: {
         sec() {

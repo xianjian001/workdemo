@@ -73,14 +73,13 @@ export default {
             title: '商品详情',
             isNoLevelOne: true,
             isShare: true,
-            imgService: require('../../../assets/img/rests/customerService.png'),
-            imgCar: require('../../../assets/img/rests/shoppingCar.png'),
+            imgService: require('../../assets/img/rests/customerService.png'),
+            imgCar: require('../../assets/img/rests/shoppingCar.png'),
             commodityDatas: {},
             shoppingList: []
         };
     },
     created() {
-        console.log(this.$route);
         this.commodityDatas = this.$route.query.commodityDatas;
     },
     methods: {
@@ -91,21 +90,19 @@ export default {
                     commodityDatas: a
                 }
             });
-        },
-        // 加入购物车
-        addShoppingCar(a) {},
-        // 添加本地存储
-        addLocalStorage(a) {
-            if (localStorage.carList) {
-                const carList = JSON.parse(localStorage.getItem('carList'));
-                carList.push(a);
-                localStorage.setItem('carList', JSON.stringify(carList));
-            } else {
-                const carList = [];
-                carList.push(a);
-                localStorage.setItem('carList', JSON.stringify(carList));
-            }
         }
+        // // 添加本地存储
+        // addLocalStorage(a) {
+        //     if (localStorage.carList) {
+        //         const carList = JSON.parse(localStorage.getItem('carList'));
+        //         carList.push(a);
+        //         localStorage.setItem('carList', JSON.stringify(carList));
+        //     } else {
+        //         const carList = [];
+        //         carList.push(a);
+        //         localStorage.setItem('carList', JSON.stringify(carList));
+        //     }
+        // },
     }
 };
 </script>
