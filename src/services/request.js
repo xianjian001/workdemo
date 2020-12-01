@@ -35,8 +35,7 @@ function successResFormat(response, prefix) {
   const res = response;
   const prefixMap = {
     [HOME_PREFIX]() {
-      console.log('res', res);
-      if (res.code === 600) {
+      if (res && res.code === 600) {
         return Promise.resolve(res);
       } else {
         return Promise.reject(res.errorMessage);
@@ -47,7 +46,7 @@ function successResFormat(response, prefix) {
   return prefixMap[prefix]();
 }
 
-function responseLog (response) {
+function responseLog(response) {
   if (process.env.NODE_ENV === 'development') {
     const randomColor = `rgba(${Math.round(Math.random() * 255)},${Math.round(
       Math.random() * 255
@@ -66,8 +65,7 @@ function responseLog (response) {
   }
 }
 
-function checkStatus (response) {
-  console.log(response);
+function checkStatus(response) {
   // 如果http状态码正常，则直接返回数据
   if (response) {
     const { status, statusText } = response;
@@ -115,7 +113,6 @@ const axiosConfig = {
  */
 const axiosResponse = {
   success: (response) => {
-    console.log(response);
     // 在请求结束后，移除本次请求
     removePending(response);
     responseLog(response);
@@ -161,7 +158,7 @@ axios.interceptors.response.use(axiosResponse.success, axiosResponse.error);
  * @param dataType
  * @returns {Promise.<T>}
  */
-export default function request (url, {
+export default function request(url, {
   method = 'post',
   timeout = TIMEOUT,
   prefix = '',

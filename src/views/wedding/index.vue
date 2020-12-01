@@ -9,7 +9,13 @@
           :title="item"
           @click="getStoreList(index)"
         >
-          <GoodsCategory :storeList="storeList"></GoodsCategory>
+          <GoodsCategory
+            v-if="httpSucc"
+            :storeList="storeList"
+          ></GoodsCategory>
+          <div v-else class="http-err">
+            <img :src="imgUrl" alt="" />
+          </div>
         </van-tab>
         <!-- <van-tab title="结婚请柬" @click="getStoreList">
                     <GoodsCategory :storeList="storeList"></GoodsCategory>
@@ -27,6 +33,7 @@
 
 <script>
 import { CommonHead, GoodsCategory } from '@components';
+import { Dialog } from 'vant';
 export default {
   components: {
     CommonHead,
@@ -37,18 +44,17 @@ export default {
       title: '婚庆用品',
       isNoLevelOne: true,
       storeList: [],
-      titleList: ['全部', '结婚请柬', '喜糖', '喜酒']
+      titleList: ['全部', '结婚请柬', '喜糖', '喜酒'],
+      httpSucc: false,
+      imgUrl:
+        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1463752512,3224009081&fm=26&gp=0.jpg'
     };
   },
-  // computed:{
-  //     ...mapState(["storeList"])
-  // },
   created() {
     this.getStoreList(1);
   },
   methods: {
     getStoreList(i) {
-      console.log(i);
       const data = {};
       this.$services
         .useApi({
@@ -56,8 +62,17 @@ export default {
           data
         })
         .then(res => {
-          // console.log(res)
-          this.storeList = res.data.storeList;
+          if (res) {
+            this.httpSucc = true;
+            this.storeList = res.data.storeList;
+          } else {
+            this.httpSucc = false;
+            Dialog.alert({
+              message: '网络错误,请重新进入！'
+            }).then(() => {
+              // on close
+            });
+          }
         });
       // let api = "http://localhost:5050/user/login/500";
       // this.$axios({

@@ -77,7 +77,6 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.query);
     this.commodityDatas = this.$route.query.commodityDatas;
   },
   computed: {
